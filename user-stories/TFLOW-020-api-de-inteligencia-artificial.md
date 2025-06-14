@@ -32,6 +32,8 @@
 
 **AC4: Consumo de Mensagens e Orquestração do Fluxo**
 -   A API continuará consumindo mensagens do Pub/Sub quando um currículo for publicado.
+-   **A `talent-flow-ia-api` está interessada apenas em currículos com o status 'published'.**
+-   **Se um currículo muda de status e retorna para 'published', ele será analisado novamente para atualizar os resultados da análise.**
 -   Ao receber uma mensagem, a API deve orquestrar o seguinte fluxo:
     1.  Executar a análise de texto descritivo (AC2) e atualizar o campo `aiClassification.tags`.
     2.  Atualizar o status em `aiClassification.status` para `"processing"`.
