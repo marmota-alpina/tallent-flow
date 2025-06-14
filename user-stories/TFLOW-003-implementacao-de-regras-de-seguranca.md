@@ -46,20 +46,31 @@ As coleções de curadoria (`technologies`, `softSkills`, etc.) armazenam os dad
 - **Escrita (Write):**
     - Apenas usuários autenticados e com a role de **`admin`** podem criar, atualizar ou deletar dados em **qualquer uma das coleções de curadoria**.
     - **Justificativa:** Protege os dados mestres da aplicação, garantindo que apenas administradores possam gerenciá-los.
-- **Exemplo de Implementação (deve ser replicado para todas as coleções de curadoria):**
+
+---
+
+#### **AC4: Regras para a Coleção `resumes` (NOVO)**
+
+A coleção `resumes` armazena os dados sensíveis dos currículos dos candidatos. As regras devem garantir a privacidade do candidato e permitir o acesso legítimo por parte dos recrutadores.
+
+- **Função Auxiliar:** Para simplificar as regras, pode-se usar uma função que verifica se o requisitante tem a role de `recruiter` ou `admin`.
     
     ```
-    match /technologies/{id} {
-      allow read: if true;
-      allow write: if request.auth != null && get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'admin';
+    function isRecruiterOrAdmin() {
+      return request.auth != null && get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role in ['recruiter', 'admin'];
     }
-    match /professionalAreas/{id} {
-      allow read: if true;
-      allow write: if request.auth != null && get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'admin';
-    }
-    match /experienceLevels/{id} {
-      allow read: if true;
-      allow write: if request.auth != null && get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'admin';
-    }
-    // ... e assim por diante para softSkills, languageList, proficiencyLevels, etc.
     ```
+    
+- **Leitura (Read):**
+    - Um usuário pode ler **apenas o seu próprio currículo** (`request.auth.uid == resumeId`).
+    - Usuários com a role de **`recruiter`** ou **`admin`** podem ler o currículo de qualquer candidato.
+    - **Justificativa:** Esta regra protege a privacidade do candidato, ao mesmo tempo que viabiliza o processo de recrutamento, permitindo que recrutadores acessem os perfis para análise, conforme `TFLOW-016`.
+- **Escrita (Write - Create, Update):**
+    - Apenas o próprio candidato pode criar ou atualizar seu currículo (`request.auth.uid == resumeId`).
+    - **Justificativa:** Garante que o candidato é a única fonte da verdade sobre suas informações profissionais. Recrutadores ou outros usuários não podem alterar os dados de um currículo.
+- **Exclusão (Delete):**
+    - Apenas o próprio candidato pode excluir seu currículo (`request.auth.uid == resumeId`).
+- **Regras para Sub-coleções (`recommendedVacancies`):**
+    - **Leitura (Read):** Apenas o candidato (`request.auth.uid == resumeId`) pode ler a lista de vagas recomendadas para ele.
+    - **Escrita (Write):** Nenhum usuário pode escrever diretamente nesta sub-coleção a partir do cliente.
+    - **Justificativa:** As recomendações são geradas e escritas pela API de IA (`TFLOW-020`) usando credenciais de administrador (servidor), que não são afetadas por estas regras de cliente. Bloquear a escrita do lado do cliente previne a manipulação de dados.

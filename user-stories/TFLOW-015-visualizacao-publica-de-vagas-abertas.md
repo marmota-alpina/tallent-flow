@@ -1,4 +1,4 @@
-# **Estória de Usuário: Visualização Pública de Vagas Abertas**
+# **Estória de Usuário: Visualização Pública de Vagas Abertas (active)**
 
 ID da Estória: TFLOW-015
 
@@ -21,7 +21,7 @@ Pontos de Estória (Estimativa): 8
 
 #### **AC2: Página de Listagem de Vagas (`/vagas`)**
 
-- O componente nesta página deve utilizar o `VacancyService` para buscar e exibir **apenas** as vagas cuja propriedade `status` seja igual a `"Aberta"`.
+- O componente nesta página deve utilizar o `VacancyService` para buscar e exibir **apenas** as vagas cuja propriedade `status` seja igual a `"active"`.
 - As vagas devem ser apresentadas em formato de lista ou cards, exibindo as informações principais: **Título da Vaga**, **Nível** (ex: Sênior), **Área** (ex: Frontend) e talvez a localidade ou modelo de trabalho.
 - Cada card de vaga na lista deve ser um link navegável que aponta para a sua respectiva página de detalhes (ex: `/vagas/documento-id-da-vaga`).
 - A página deve incluir uma funcionalidade de busca simples para filtrar vagas por título ou palavra-chave.

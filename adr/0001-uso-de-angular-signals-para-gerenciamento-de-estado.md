@@ -1,48 +1,39 @@
-### **Estória de Usuário: Setup Inicial do Projeto Talent Flow Webapp**
+# ADR 0001: Uso de Angular Signals para Gerenciamento de Estado
 
-**ID da Estória:** TFLOW-001
+**Status:** Decidido
 
-**Feature:** Infraestrutura do Projeto
+**Data:** 2025-06-14
 
-**Pontos de Estória (Estimativa):** 5
+## Contexto
 
-- **Como um:** Desenvolvedor(a) da equipe Talent Flow.
-- **Eu quero:** Inicializar um novo projeto Angular seguindo a arquitetura e as decisões técnicas definidas, com todas as dependências e configurações base prontas para uso.
-- **Para que:** Eu e a equipe possamos começar a desenvolver as features principais (como login e curadoria) sobre uma fundação sólida, consistente e escalável, sem perder tempo com configurações repetitivas.
+Uma aplicação moderna como o `talent-flow-webapp` precisa gerenciar múltiplos estados reativos que mudam ao longo do tempo (ex: status de autenticação do usuário, listas de dados, estados de carregamento). Uma gestão de estado ineficiente ou inconsistente pode levar a bugs, problemas de performance e uma má experiência para o usuário.
 
-### **Critérios de Aceitação (AC)**
+As alternativas para o gerenciamento de estado no Angular são:
 
-#### **AC1: Geração e Configuração do Projeto Angular**
+1. **RxJS e `BehaviorSubject`:** A abordagem tradicional, poderosa, porém verbosa e que pode levar a uma gestão complexa de `subscriptions`, com risco de "memory leaks".
+2. **Bibliotecas de Estado (NgRx, Akita):** Soluções robustas e estruturadas, mas que adicionam uma camada significativa de complexidade e código repetitivo ("boilerplate"), sendo potencialmente excessivas para as necessidades do MVP.
+3. **Angular Signals:** O novo sistema de reatividade nativo do Angular, projetado para ser mais simples, legível e performático.
 
-- O projeto deve ser gerado com o Angular CLI (`ng new talent-flow-webapp`).
-- As opções para **standalone components**, **SSR (Server-Side Rendering)** e **SCSS** (SASS) devem ser habilitadas durante a criação.
+## Decisão
 
-#### **AC2: Instalação de Dependências Essenciais**
+O `talent-flow-webapp` adotará **Angular Signals** como a estratégia principal para o gerenciamento de estado reativo.
 
-- As seguintes dependências principais devem ser adicionadas ao `package.json` e instaladas:
-    - `@angular/fire` (para integração com Firebase)
-    - `tailwindcss`, `postcss`, `autoprefixer` (para o sistema de estilização)
-    - `firebase`
-    - `ngx-toastr` (para notificações toast)
-    - `sweetalert2` (para diálogos de confirmação)
+1. Os estados serão armazenados em primitivas `signal()`.
+2. As alterações de estado serão realizadas através dos métodos `.set()` e `.update()`.
+3. Dependências entre diferentes estados serão gerenciadas com `computed()` signals.
+4. Efeitos colaterais reativos (side effects) serão tratados com `effect()`.
+5. Esta abordagem será o padrão para gerenciar o perfil do usuário, listas de dados obtidas do Firestore e estados da UI (como `loading` e `error`).
 
-#### **AC3: Configuração do Tailwind CSS e Estilos Globais**
+## Consequências
 
-- O arquivo `tailwind.config.js` deve ser criado e configurado para escanear os arquivos `html` e `ts`.
-- O arquivo `styles.scss` principal deve conter as diretivas `@tailwind base`, `@tailwind components` e `@tailwind utilities`.
-- O sistema de design inicial (cor primária, fonte `Inter`) definido na **ADR-010** deve ser configurado no `tailwind.config.js`.
+**Positivas:**
 
-#### **AC4: Integração com Firebase**
+- **Simplicidade e Código Declarativo:** A sintaxe dos Signals é mais simples e intuitiva em comparação com as complexas cadeias de operadores do RxJS, tornando o código mais legível.
+- **Performance Otimizada:** Signals permitem uma detecção de mudanças mais granular, o que melhora a performance da aplicação, pois o Angular atualiza apenas os componentes específicos do DOM que foram alterados.
+- **Redução de Boilerplate:** Elimina a necessidade do código extenso de configuração e ações/reducers exigido por bibliotecas como NgRx.
+- **Alinhamento com o Framework:** Adotar Signals alinha o projeto com a direção futura e as melhores práticas recomendadas pelo próprio time do Angular.
 
-- A estrutura dos arquivos de ambiente (`environment.ts`, `environment.development.ts`) deve ser criada para armazenar a configuração do Firebase.
-- Um arquivo `environment.example.ts` (com chaves vazias) deve ser criado e versionado no Git, enquanto os arquivos com credenciais reais devem ser adicionados ao `.gitignore`.
-- A inicialização do Firebase no `app.config.ts` (`provideFirebaseApp`, `provideAuth`, `provideFirestore`) deve ser configurada.
+**Negativas:**
 
-#### **AC5: Criação da Estrutura de Diretórios**
-
-- A estrutura de diretórios base definida no Documento de Arquitetura deve ser criada no `src/app`: `/core`, `/features`, `/models`, `/shared`.
-
-#### **AC6: Documentação Inicial**
-
-- O arquivo `README.md` do projeto deve ser atualizado com as instruções de instalação e configuração para um novo desenvolvedor.
-- Um diretório `docs/adr` deve ser criado para armazenar os Arquivos de Decisão de Arquitetura (ADRs) relevantes para este repositório.
+- **Mudança de Paradigma:** Requer uma adaptação por parte dos desenvolvedores que estão mais acostumados ao paradigma puramente funcional e reativo do RxJS.
+- **Curva de Aprendizagem na Interoperabilidade:** Embora a integração com RxJS seja possível, a equipe precisará aprender as melhores práticas para converter `Observables` em `Signals` e vice-versa, o que pode introduzir uma complexidade inicial.
