@@ -4,7 +4,7 @@
 
 **Data:** 2025-06-14
 
-**Nota:** Este ADR substitui e invalida a decisão do `ADR-014: Adoção de Estrutura Monorepo para o Projeto`.
+**Nota:** Este ADR substitui e invalida a decisão do ADR [[0014-adocao-de-estrutura-monorepo-para-o-projeto.md]]
 
 ## Contexto
 

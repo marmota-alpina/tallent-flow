@@ -1,6 +1,6 @@
 # ADR 014: Adoção de Estrutura Monorepo para o Projeto
 
-**Status:** Superado
+**Status:** Abandonado
 
 **Data:** 2025-06-14
 

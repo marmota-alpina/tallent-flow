@@ -1,13 +1,17 @@
 # Documentação do Projeto Talent Flow
 
-Bem-vindo à documentação do Tallent Flow. Este diretório contém artefatos importantes que registram as decisões de arquitetura e os requisitos funcionais do projeto.
+Bem-vindo à documentação do Talent Flow. Este diretório contém artefatos importantes que registram as decisões de arquitetura e os requisitos funcionais do projeto.
 
 ## Navegação
--   **/architecture**: Contém os arquivos que documentam a arquitetura do projeto em detalhes.
--   **/adr**: Contém os **Architecture Decision Records (ADRs)**. Cada arquivo neste diretório documenta uma decisão arquitetural significativa, o contexto que a motivou e suas consequências. Eles servem como um diário técnico da evolução do projeto.
 
--   **/user-stories**: Contém as **Estórias de Usuário** detalhadas para as principais features do sistema. Estes documentos descrevem a funcionalidade do ponto de vista do usuário e servem como base para o desenvolvimento e testes.
+- **/architecture**: Contém os arquivos que documentam a arquitetura do projeto em detalhes.
+    
+- **/adr**: Contém os **Architecture Decision Records (ADRs)**. Cada arquivo neste diretório documenta uma decisão arquitetural significativa, o contexto que a motivou e suas consequências. Eles servem como um diário técnico da evolução do projeto.
+    
+- **/user-stories**: Contém as **Estórias de Usuário** detalhadas para as principais features do sistema. Estes documentos descrevem a funcionalidade do ponto de vista do usuário e servem como base para o desenvolvimento e testes.
+    
 - **/examples**: Contém os arquivos com exemplos de dados que serão armazenados no **Firestore**
+    
 
 ### **Revisão Completa da Documentação do Projeto Talent Flow**
 
@@ -75,10 +79,7 @@ Esta é a lista completa do escopo funcional do MVP. A ausência de qualquer uma
 - `[ ]` **TFLOW-011:** Área Administrativa de Curadoria.
 - `[ ]` **TFLOW-014:** Gerenciamento de Vagas (CRUD).
 - `[ ]` **TFLOW-016:** Visualização de Candidatos Compatíveis por Vaga.
-
-**Categoria: Portal Público (`webapp`)**
-
-- `[ ]` **TFLOW-015:** Visualização Pública de Vagas Abertas.
+- `[ ]` **TFLOW-023:** Interface de Anotação de Dados para Treinamento de IA.
 
 **Categoria: Serviços de Backend (Repositórios Separados)**
 

@@ -1,10 +1,10 @@
-### **Estória de Usuário: Setup Inicial do Projeto `talent-flow-webapp`**
+### **Estória de Usuário: Setup Inicial do Projeto Talent Flow Webapp**
 
-ID da Estória: TFLOW-001
+**ID da Estória:** TFLOW-001
 
-Feature: Infraestrutura do Projeto
+**Feature:** Infraestrutura do Projeto
 
-Pontos de Estória (Estimativa): 5
+**Pontos de Estória (Estimativa):** 5
 
 - **Como um:** Desenvolvedor(a) da equipe Talent Flow.
 - **Eu quero:** Inicializar um novo projeto Angular seguindo a arquitetura e as decisões técnicas definidas, com todas as dependências e configurações base prontas para uso.
