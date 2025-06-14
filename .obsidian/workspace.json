@@ -69,12 +69,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "user-stories/TFLOW-002-implementacao-dos --padroes-de-abstracao.md",
+                "file": "user-stories/TFLOW-003-implementacao-de-regras-de-seguranca.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "TFLOW-002-implementacao-dos --padroes-de-abstracao"
+              "title": "TFLOW-003-implementacao-de-regras-de-seguranca"
             }
           }
         ],
@@ -151,7 +151,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "user-stories/TFLOW-002-implementacao-dos --padroes-de-abstracao.md",
+                "file": "user-stories/TFLOW-003-implementacao-de-regras-de-seguranca.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -161,7 +161,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for TFLOW-002-implementacao-dos --padroes-de-abstracao"
+              "title": "Backlinks for TFLOW-003-implementacao-de-regras-de-seguranca"
             }
           },
           {
@@ -170,12 +170,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "user-stories/TFLOW-002-implementacao-dos --padroes-de-abstracao.md",
+                "file": "user-stories/TFLOW-003-implementacao-de-regras-de-seguranca.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from TFLOW-002-implementacao-dos --padroes-de-abstracao"
+              "title": "Outgoing links from TFLOW-003-implementacao-de-regras-de-seguranca"
             }
           },
           {
@@ -199,13 +199,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "user-stories/TFLOW-002-implementacao-dos --padroes-de-abstracao.md",
+                "file": "user-stories/TFLOW-003-implementacao-de-regras-de-seguranca.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of TFLOW-002-implementacao-dos --padroes-de-abstracao"
+              "title": "Outline of TFLOW-003-implementacao-de-regras-de-seguranca"
             }
           }
         ]
@@ -225,13 +225,20 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "d7b846ffd9d16432",
+  "active": "50a40b10234ec52a",
   "lastOpenFiles": [
-    "user-stories/TFLOW-009-tela-de-autenticacao-com-login-social.md",
-    "user-stories/TFLOW-001-setup-inicial-do-projeto.md",
+    "user-stories/TFLOW-016-visualizacao-de-candidatos-por-vaga.md",
     "user-stories/TFLOW-002-implementacao-dos --padroes-de-abstracao.md",
-    "adr/0016-padrao-de-feedback-ao-usuario-com-toasts-e-modais.md.md",
+    "user-stories/TFLOW-013-painel-de-controle-do-candidato.md",
+    "user-stories/TFLOW-021-cloud-functions-de-automacao.md",
+    "user-stories/TFLOW-020-api-de-inteligencia-artificial.md",
+    "user-stories/TFLOW-001-setup-inicial-do-projeto.md",
+    "user-stories/TFLOW-015-visualizacao-publica-de-vagas-abertas.md",
+    "user-stories/TFLOW-003-implementacao-de-regras-de-seguranca.md",
     "user-stories/TFLOW-010-layout-principal-e-sistema de-design.md",
+    "adr/0000-adocao-da-arquitetura-baas-com-logica-no-frontend.md.md",
+    "user-stories/TFLOW-009-tela-de-autenticacao-com-login-social.md",
+    "adr/0016-padrao-de-feedback-ao-usuario-com-toasts-e-modais.md.md",
     "architecture/talent-flow-webapp.md.md",
     "adr/0014-adocao-de-estrutura-monorepo-para-o-projeto.md.md",
     "adr/0015-adocao-de-arquitetura-poly-repo.md.md",
@@ -239,18 +246,12 @@
     "adr/0011-estrategia-de-gerenciamento-de-usuarios-e-rbac.md.md",
     "adr/0012-incorporacao-da-foto-de-perfil-do-google.md.md",
     "adr/0013-implementacao-de-navegacao-e-breadcrumbs.md.md",
-    "user-stories/TFLOW-015-visualizacao-publica-de-vagas-abertas.md",
     "user-stories/TFLOW-014-gerenciamento-de-vagas.md",
     "user-stories/TFLOW-012-formulario-dinamico-de-curriculo.md.md",
     "adr/0008-escolha-do-sass-como-pre-processador-de-css.md.md",
     "adr/0001-uso-de-angular-signals-para-gerenciamento-de-estado.md",
     "adr/0009-reafirmacao-do-uso-de-server-side-rendering-ssr.md.md",
     "adr/0007-adocao-do-tailwind-css-como-framework-de-estilizacao.md.md",
-    "adr/0006-adocao-de-login-social-com-google-como-metodo-de-autenticacao.md.md",
-    "adr/0005-implementacao-de-fila-de-mensagens-com-google-cloud-pubsub.md.md",
-    "adr/0004-utilizacao-da-suite-google-firebase-como-backend-baas.md.md",
-    "adr/0003-adocao-de-angular-com-ssr-para-o-frontend.md.md",
-    "adr/0002-adocao-de-arquitetura-com-componentes-e-servicos-base.md.md",
-    "user-stories/TFLOW-011-area-administrativa-de-curadoria.md.md"
+    "adr/0006-adocao-de-login-social-com-google-como-metodo-de-autenticacao.md.md"
   ]
 }
