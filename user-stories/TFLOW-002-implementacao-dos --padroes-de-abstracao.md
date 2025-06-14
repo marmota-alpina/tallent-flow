@@ -1,41 +1,34 @@
 # **Estória de Usuário: Implementação dos Padrões de Abstração**
 
-ID da Estória: TFLOW-002
+**D da Estória:** TFLOW-002
 
-Feature: Arquitetura e Qualidade de Código
+**Feature:** Arquitetura e Core
 
-Pontos de Estória (Estimativa): 8
+**Pontos de Estória (Estimativa):** 8
 
-- **Como um:** Desenvolvedor(a) da equipe Talent Flow.
-- **Eu quero:** Implementar um conjunto de componentes e classes base reutilizáveis para as funcionalidades de CRUD (Criar, Ler, Atualizar, Excluir) que serão usadas em toda a aplicação.
-- **Para que:** Possamos acelerar o desenvolvimento de todas as páginas de gerenciamento (como Tecnologias, Cargos, Habilidades, etc.), garantindo consistência visual e de comportamento, e minimizando a duplicação de código desde o início do projeto.
+- **Como um:** Desenvolvedor do time do Talent Flow.
+- **Eu quero:** Implementar um `BaseCurationService` e um `BaseCurationComponent` genéricos.
+- **Para que:** O código de CRUD para as diferentes áreas de curadoria (`technologies`, `softSkills`, `professionalAreas`, etc.) seja reutilizado, reduzindo a duplicação, acelerando o desenvolvimento e garantindo um comportamento consistente em toda a área administrativa.
 
-### **Critérios de Aceitação (AC)**
+#### **Critérios de Aceitação (AC)**
 
-#### **AC1: Implementação dos Serviços Base e Core**
+**AC1: Padrão de Serviço Base para CRUD de Curadoria (`BaseCurationService`)**
 
-- Deve ser criada uma classe abstrata `BaseCurationService` no diretório `src/app/core/services/`.
-- Esta classe base deve conter a lógica genérica para interagir com o Firestore: `getCollection()`, `addItem(item)`, `updateItem(id, item)` e `deleteItem(id)` (implementando soft delete, ou seja, atualizando um campo `isActive: false`).
-- Fica estabelecido que todos os serviços singleton da aplicação (como `AuthService`, `BreadcrumbService`, etc.) serão criados e mantidos dentro do diretório `src/app/core/services/`.
+O serviço deve ser uma classe abstrata injetável que lida com as operações do Firestore.
 
-#### **AC2: Implementação do Componente Base de Curadoria**
+- **Configuração:** O serviço que herdar do `BaseCurationService` deve apenas especificar o nome da coleção do Firestore que ele gerencia.
+- **Leitura (Read):** Deve fornecer um método `getAll` que retorna um `Observable` com todos os documentos da coleção. Os documentos devem ser retornados ordenados por um campo `name` ou `description`.
+- **Criação (Create):** Deve fornecer um método `create` que recebe os dados do novo item, adiciona um campo `status: 'active'` e o salva no Firestore.
+- **Atualização (Update):** Deve fornecer um método `update` que recebe o ID do documento e os novos dados a serem salvos.
+- **Exclusão (Soft Delete):** O serviço deve implementar um método `archive` que atualiza o campo `status` do documento para `'archived'`, seguindo o padrão de exclusão lógica da aplicação.
+- **Reativação:** O serviço deve implementar um método `unarchive` que atualiza o campo `status` do documento para `'active'`.
 
-- Deve ser criada uma classe abstrata `BaseCurationComponent`.
-- Esta classe deve gerenciar o estado comum a todas as páginas de CRUD usando Angular Signals (ex: `items = signal([])`, `isLoading = signal(false)`, `showModal = signal(false)`).
-- Deve conter os métodos genéricos para interagir com o serviço base (ex: `loadItems()`, `onEdit()`, `onDelete()`, `openModal()`), que serão herdados pelos componentes filhos.
+**AC2: Padrão de Componente Base para UI de Curadoria (`BaseCurationComponent`)**
 
-#### **AC3: Criação dos Componentes de UI Reutilizáveis**
+O componente deve ser uma classe abstrata que fornece a UI e a lógica para exibir e gerenciar uma lista de itens de curadoria.
 
-- Um componente `CurationTableComponent` deve ser criado no diretório `src/app/shared/components/`.
-    - Ele deve ser um componente "burro" (presentational), recebendo a lista de itens via `@Input()` e emitindo eventos para as ações de editar e excluir via `@Output()`.
-- Um componente `CurationFormModalComponent` deve ser criado no `src/app/shared/components/`.
-    - Ele deve ser um componente "burro" que recebe um `FormGroup` e um título via `@Input()` e emite um evento de `save` com os dados do formulário via `@Output()`.
-
-#### **AC4: Implementação de um Módulo Piloto para Validação**
-
-- Para validar que as abstrações funcionam corretamente, a **primeira funcionalidade de curadoria, "Gerenciamento de Tecnologias",** deve ser completamente implementada usando os padrões criados nos ACs anteriores.
-- Isso inclui:
-    - Criar o `TechnologiesService` que herda de `BaseCurationService`.
-    - Criar o `TechnologiesComponent` que herda de `BaseCurationComponent`.
-    - Utilizar os componentes `CurationTableComponent` e `CurationFormModalComponent` em seu template.
-- Ao final, o CRUD completo para a entidade "Tecnologias" deve estar 100% funcional, servindo como exemplo para a implementação de todas as outras páginas de curadoria.
+- **Injeção de Serviço:** O componente deve injetar uma instância do `BaseCurationService`.
+- **Exibição de Dados:** Deve exibir os dados em uma tabela, mostrando o nome/descrição do item.
+- **Filtragem de Ativos/Inativos:** Deve haver um controle (como um switch ou abas) que permita ao administrador visualizar os itens com `status: 'active'` ou `status: 'archived'`. A visão padrão deve ser de itens ativos.
+- **Ações de CRUD:** Para cada item na tabela, devem haver botões para "Editar", "Arquivar" e "Reativar" (este último visível apenas na lista de arquivados).
+- **Formulário de Criação/Edição:** Deve haver um formulário (preferencialmente em um modal) para criar ou editar um item. O mesmo formulário deve ser usado para ambas as ações.
