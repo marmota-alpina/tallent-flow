@@ -1,6 +1,6 @@
 # ADR 016: Padrão Arquitetural para Feedback ao Usuário
 
-**Status:** Proposto
+**Status:** Decidido
 
 **Data:** 2025-06-14
 

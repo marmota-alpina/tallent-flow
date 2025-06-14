@@ -1,6 +1,6 @@
 # ADR 014: Adoção de Estrutura Monorepo para o Projeto
 
-**Status:** Decidido
+**Status:** Superado
 
 **Data:** 2025-06-14
 
@@ -19,5 +19,3 @@ A alternativa seria gerenciar cada uma dessas partes em seu próprio repositóri
 O projeto Talent Flow adotará uma estrutura de **monorepo**. Todo o código-fonte de todas as aplicações e bibliotecas relacionadas ao projeto residirá em um único repositório Git.
 
 A estrutura de diretórios será organizada para refletir esta abordagem, com cada aplicação ou biblioteca residindo em sua própria pasta dentro de um diretório de nível superior, como `apps/` ou `packages/`.
-
-**Estrutura de Diretórios Proposta:**

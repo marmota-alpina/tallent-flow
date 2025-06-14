@@ -69,12 +69,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "README.md",
+                "file": "adr/0001-uso-de-angular-signals-para-gerenciamento-de-estado.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "README"
+              "title": "0001-uso-de-angular-signals-para-gerenciamento-de-estado"
             }
           }
         ],
@@ -151,7 +151,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "README.md",
+                "file": "adr/0001-uso-de-angular-signals-para-gerenciamento-de-estado.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -161,7 +161,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for README"
+              "title": "Backlinks for 0001-uso-de-angular-signals-para-gerenciamento-de-estado"
             }
           },
           {
@@ -170,12 +170,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "README.md",
+                "file": "adr/0001-uso-de-angular-signals-para-gerenciamento-de-estado.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from README"
+              "title": "Outgoing links from 0001-uso-de-angular-signals-para-gerenciamento-de-estado"
             }
           },
           {
@@ -199,13 +199,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "README.md",
+                "file": "adr/0001-uso-de-angular-signals-para-gerenciamento-de-estado.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of README"
+              "title": "Outline of 0001-uso-de-angular-signals-para-gerenciamento-de-estado"
             }
           }
         ]
@@ -227,8 +227,11 @@
   },
   "active": "50a40b10234ec52a",
   "lastOpenFiles": [
-    "user-stories/TFLOW-003-implementacao-de-regras-de-seguranca.md",
+    "adr/0016-padrao-de-feedback-ao-usuario-com-toasts-e-modais.md.md",
+    "adr/0014-adocao-de-estrutura-monorepo-para-o-projeto.md.md",
+    "adr/0012-incorporacao-da-foto-de-perfil-do-google.md.md",
     "README.md",
+    "user-stories/TFLOW-003-implementacao-de-regras-de-seguranca.md",
     "user-stories/TFLOW-016-visualizacao-de-candidatos-por-vaga.md",
     "user-stories/TFLOW-002-implementacao-dos --padroes-de-abstracao.md",
     "user-stories/TFLOW-013-painel-de-controle-do-candidato.md",
@@ -239,13 +242,10 @@
     "user-stories/TFLOW-010-layout-principal-e-sistema de-design.md",
     "adr/0000-adocao-da-arquitetura-baas-com-logica-no-frontend.md.md",
     "user-stories/TFLOW-009-tela-de-autenticacao-com-login-social.md",
-    "adr/0016-padrao-de-feedback-ao-usuario-com-toasts-e-modais.md.md",
     "architecture/talent-flow-webapp.md.md",
-    "adr/0014-adocao-de-estrutura-monorepo-para-o-projeto.md.md",
     "adr/0015-adocao-de-arquitetura-poly-repo.md.md",
     "adr/0010-definicao-do-sistema-de-design-base.md.md",
     "adr/0011-estrategia-de-gerenciamento-de-usuarios-e-rbac.md.md",
-    "adr/0012-incorporacao-da-foto-de-perfil-do-google.md.md",
     "adr/0013-implementacao-de-navegacao-e-breadcrumbs.md.md",
     "user-stories/TFLOW-014-gerenciamento-de-vagas.md",
     "user-stories/TFLOW-012-formulario-dinamico-de-curriculo.md.md",
