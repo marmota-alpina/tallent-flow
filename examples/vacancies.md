@@ -2,6 +2,9 @@
 
 **Este arquivo contém exemplos para a coleção `vacancies`, incluindo vagas abertas e uma fechada, refletindo os campos definidos na estória `TFLOW-014`.**
 
+***Fechada** : `archived`
+**Aberta**: `active`
+
 ``` JSON
 [
   {
@@ -18,7 +21,7 @@
       "AWS",
       "PostgreSQL"
     ],
-    "status": "Aberta"
+    "status": "active"
   },
   {
     "vacancyId": "vacancy_frontend_pl_01",
@@ -34,7 +37,7 @@
       "SASS",
       "Testes Unitários"
     ],
-    "status": "Aberta"
+    "status": "active"
   },
   {
     "vacancyId": "vacancy_ux_designer_01",
@@ -48,7 +51,7 @@
       "Design Systems",
       "Prototipagem"
     ],
-    "status": "Aberta"
+    "status": "active"
   },
   {
     "vacancyId": "vacancy_devops_pl_01",
@@ -63,7 +66,7 @@
       "Docker",
       "CI/CD"
     ],
-    "status": "Fechada"
+    "status": "archived"
   }
 ]
 ```

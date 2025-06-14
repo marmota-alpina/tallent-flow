@@ -23,6 +23,8 @@ Pontos de Estória (Estimativa): 5
     - `@angular/fire` (para integração com Firebase)
     - `tailwindcss`, `postcss`, `autoprefixer` (para o sistema de estilização)
     - `firebase`
+    - - `ngx-toastr` para exibição de notificações (toasts).
+	- `sweetalert2` para exibição de modais e diálogos de confirmação.
 
 #### **AC3: Configuração do Tailwind CSS e Estilos Globais**
 
